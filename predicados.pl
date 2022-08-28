@@ -31,3 +31,16 @@ contar_pares_impares([_|L],P,I):-contar_pares_impares(L,P,I1), I is I1+1.
 
 tem_repetidos([X,Y|_]):-X == Y,!.
 tem_repetidos([_|L]):-tem_repetidos(L).
+
+% Concatenar duas listas
+
+concatenar_listas([],[],[]):-!.
+concatenar_listas([X|L],[Y|L1],[X,Y|L2]):-concatenar_listas(L,L1,L2).
+concatenar_listas([X|L],[],[X|L2]):-concatenar_listas(L,[],L2).
+concatenar_listas([],[X|L],[X|L2]):-concatenar_listas([],L,L2).
+
+% Linearizar uma lista
+
+linearizar([],[]):-!.
+linearizar([L|L1],L2):-is_list(L),!,concatenar_listas(L,L1,LL),linearizar(LL,L2).
+linearizar([X|L],[X|L2]):-linearizar(L,L2).
