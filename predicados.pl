@@ -44,3 +44,18 @@ concatenar_listas([],[X|L],[X|L2]):-concatenar_listas([],L,L2).
 linearizar([],[]):-!.
 linearizar([L|L1],L2):-is_list(L),!,concatenar_listas(L,L1,LL),linearizar(LL,L2).
 linearizar([X|L],[X|L2]):-linearizar(L,L2).
+
+% Eliminar todas as ocorrências de um elemento numa lista
+
+eliminar_ocorrencia([],_,[]).
+eliminar_ocorrencia([X|L],N,L1):-X==N,!,eliminar_ocorrencia(L,N,L1).
+eliminar_ocorrencia([X|L],N,[X|L1]):-eliminar_ocorrencia(L,N,L1).
+
+% Eliminar a 1ª ocorrência de um elemento numa lista
+
+eliminar_uma_ocorrencia([_],_,[_]):-!.
+eliminar_uma_ocorrencia(L,N,L1):-eliminar_uma_ocorrencia_aux(L,N,0,L1).
+
+eliminar_uma_ocorrencia_aux([],_,1,[]):-!.
+eliminar_uma_ocorrencia_aux([X|L],N,O,L1):-O==0,X==N,!,eliminar_uma_ocorrencia_aux(L,N,O1,L1), O1 is O+1.
+eliminar_uma_ocorrencia_aux([X|L],N,O,[X|L1]):-eliminar_uma_ocorrencia_aux(L,N,O,L1).
