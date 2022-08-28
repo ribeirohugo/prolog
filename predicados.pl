@@ -59,3 +59,9 @@ eliminar_uma_ocorrencia(L,N,L1):-eliminar_uma_ocorrencia_aux(L,N,0,L1).
 eliminar_uma_ocorrencia_aux([],_,1,[]):-!.
 eliminar_uma_ocorrencia_aux([X|L],N,O,L1):-O==0,X==N,!,eliminar_uma_ocorrencia_aux(L,N,O1,L1), O1 is O+1.
 eliminar_uma_ocorrencia_aux([X|L],N,O,[X|L1]):-eliminar_uma_ocorrencia_aux(L,N,O,L1).
+
+% Substituir todas as ocorrências de um dado elemento numa lista por um outro elemento
+
+substituir_ocorrencia([],_,_,[]):-!.
+substituir_ocorrencia([X|L],E1,E2,[E2|L2]):-X==E1,!,substituir_ocorrencia(L,E1,E2,L2).
+substituir_ocorrencia([X|L],E1,E2,[X|L2]):-substituir_ocorrencia(L,E1,E2,L2).
