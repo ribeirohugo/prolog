@@ -65,3 +65,8 @@ eliminar_uma_ocorrencia_aux([X|L],N,O,[X|L1]):-eliminar_uma_ocorrencia_aux(L,N,O
 substituir_ocorrencia([],_,_,[]):-!.
 substituir_ocorrencia([X|L],E1,E2,[E2|L2]):-X==E1,!,substituir_ocorrencia(L,E1,E2,L2).
 substituir_ocorrencia([X|L],E1,E2,[X|L2]):-substituir_ocorrencia(L,E1,E2,L2).
+
+% Inverter lista
+
+inverter([],[]):-!.
+inverter([X|L],L2):-inverter(L,L1),concatenar_listas(L1,[X],L2).
