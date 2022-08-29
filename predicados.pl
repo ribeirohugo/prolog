@@ -43,10 +43,9 @@ remove_menor(M,[X|L],[X|L1]):-remove_menor(M,L,L1).
 
 % Concatenar duas listas
 
-concatenar_listas([],[],[]):-!.
-concatenar_listas([X|L],[Y|L1],[X,Y|L2]):-concatenar_listas(L,L1,L2).
-concatenar_listas([X|L],[],[X|L2]):-concatenar_listas(L,[],L2).
-concatenar_listas([],[X|L],[X|L2]):-concatenar_listas([],L,L2).
+concatenar_listas([],[],_):-!.
+concatenar_listas([X|L],L1,[X|L2]):-concatenar_listas(L,L1,L2).
+concatenar_listas([],[X|L1],[X|L2]):-concatenar_listas([],L1,L2).
 
 % Linearizar uma lista
 

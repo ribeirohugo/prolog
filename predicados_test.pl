@@ -61,4 +61,21 @@ test(menor_elemento) :-
 test(menor_elemento) :-
         menor_elemento([2],[2]).
 
+% concatenar_listas
+test(concatenar_listas) :-
+        concatenar_listas([1,2],[1,2],[1,2,1,2]).
+
+test(concatenar_listas) :-
+        concatenar_listas([1,2],[1],[1,2,1]).
+
+test(concatenar_listas) :-
+        concatenar_listas([],[],[]).
+
+test(concatenar_listas) :-
+        concatenar_listas([1],[],[1]).
+
+test(concatenar_listas) :-
+        concatenar_listas([],[1],[1]).
+
 :- end_tests(lists).
+
