@@ -32,6 +32,13 @@ contar_pares_impares([_|L],P,I):-contar_pares_impares(L,P,I1), I is I1+1.
 tem_repetidos([X,Y|_]):-X == Y,!.
 tem_repetidos([_|L]):-tem_repetidos(L).
 
+% Colocar o menor elemento da lista à frente da lista
+
+menor_elemento(L,[Menor|L1]):-menor(L,Menor), remove_menor(Menor,L,L1),!.
+
+remove_menor(M,[M|L],L).
+remove_menor(M,[X|L],[X|L1]):-remove_menor(M,L,L1).
+
 % Concatenar duas listas
 
 concatenar_listas([],[],[]):-!.
