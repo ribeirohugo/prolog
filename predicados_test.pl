@@ -114,5 +114,15 @@ test(substituir_ocorrencia) :-
 test(substituir_ocorrencia) :-
         substituir_ocorrencia([],1,2,[]).
 
+% adicionar_elemento
+test(adicionar_elemento) :-
+        adicionar_elemento(0,0,[1,2,3,4],[0,1,2,3,4]).
+
+test(adicionar_elemento) :-
+        adicionar_elemento(0,0,[],[0]).
+
+test(adicionar_elemento) :-
+        adicionar_elemento(1,3,[],[]).
+
 :- end_tests(lists).
 

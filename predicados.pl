@@ -79,6 +79,7 @@ substituir_ocorrencia([X|L],E1,E2,[X|L2]):-substituir_ocorrencia(L,E1,E2,L2).
 % I - índice de onde adicionar o elemento
 
 adicionar_elemento(N,0,L,[N|L]):-!.
+adicionar_elemento(_,_,[],_):-!.
 adicionar_elemento(N,I,[Y|L],[Y|L1]):-I1 is I-1,adicionar_elemento(N,I1,L,L1).
 
 % Inverter lista
