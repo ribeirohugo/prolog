@@ -166,4 +166,33 @@ test(unir_conjuntos) :-
 test(unir_conjuntos) :-
         unir_conjuntos([],[],[]).
 
+% interseccao_conjuntos
+test(interseccao_conjuntos) :-
+        interseccao_conjuntos([],[],[]).
+
+test(interseccao_conjuntos) :-
+        interseccao_conjuntos([1,2,3],[],[]).
+
+test(interseccao_conjuntos) :-
+        interseccao_conjuntos([1,2,3],[1,2],[1,2]).
+
+test(interseccao_conjuntos) :-
+        interseccao_conjuntos([3,1,1,1],[2,1],[3,1,1,1]).
+
+test(interseccao_conjuntos) :-
+        interseccao_conjuntos([1],[1],[1]).
+
+% existe
+test(existe) :-
+        existe([1,2,3],1).
+
+test(existe) :-
+        existe([1,2,3],3).
+
+test(existe, [fail]) :-
+        existe([1,2,3],5).
+
+test(existe, [fail]) :-
+        existe([],5).
+
 :- end_tests(lists).

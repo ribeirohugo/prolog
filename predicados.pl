@@ -94,9 +94,21 @@ inverter([X|L],L2):-inverter(L,L1),append(L1,[X],L2).
 
 % União de dois conjuntos representados por listas (os conjuntos não
 % admitem elementos repetidos)
-
 unir_conjuntos([],[],_):-!.
 unir_conjuntos([X|L],L1,L2):-tem_repetidos([X|L2]),!,unir_conjuntos(L,L1,L2).
 unir_conjuntos([X|L],L1,[X|L2]):-unir_conjuntos(L,L1,L2).
 unir_conjuntos([],[Y|L1],L2):-tem_repetidos([Y|L2]),!,unir_conjuntos([],L1,L2).
 unir_conjuntos([],[Y|L1],[Y|L2]):-unir_conjuntos([],L1,L2).
+
+% Intersecção de dois conjuntos representados por listas
+interseccao_conjuntos([],_,_):-!.
+interseccao_conjuntos(_,[],_):-!.
+interseccao_conjuntos([],[],_):-!.
+interseccao_conjuntos([X|L],L1,[X|L2]):-existe(L1,X),!,interseccao_conjuntos(L,L1,L2).
+interseccao_conjuntos([_|L],L1,L2):-interseccao_conjuntos(L,L1,L2).
+
+% Verificar se o elemento existe numa lista
+
+existe([X|_],X):-!.
+existe([_|L],X):-existe(L,X).
+
