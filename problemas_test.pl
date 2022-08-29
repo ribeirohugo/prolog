@@ -22,4 +22,17 @@ test(ordem_lista) :-
 test(ordem_lista) :-
         ordem_lista(1,2,[0,1,2,1,8,2,1]).
 
+% remover_iguais_seguidos
+test(remover_iguais_seguidos) :-
+        remover_iguais_seguidos([1,2,2,2,3],[1,2,3]).
+
+test(remover_iguais_seguidos) :-
+        remover_iguais_seguidos([1,2,2,2,3,2,2],[1,2,3,2]).
+
+test(remover_iguais_seguidos) :-
+        remover_iguais_seguidos([1],[1]).
+
+test(remover_iguais_seguidos) :-
+        remover_iguais_seguidos([],[]).
+
 :- end_tests(lists).
