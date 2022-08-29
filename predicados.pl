@@ -108,7 +108,18 @@ interseccao_conjuntos([X|L],L1,[X|L2]):-existe(L1,X),!,interseccao_conjuntos(L,L
 interseccao_conjuntos([_|L],L1,L2):-interseccao_conjuntos(L,L1,L2).
 
 % Verificar se o elemento existe numa lista
-
 existe([X|_],X):-!.
 existe([_|L],X):-existe(L,X).
 
+% Diferença entre dois conjuntos representados por listas
+diferenca_conjuntos(L,L1,L2):-
+    diferenca_conjunto(L,L1,LX),
+    diferenca_conjunto(L1,L,LY),
+    concatenar_listas(LX,LY,L2).
+
+% Verifica as diferenças de um conjunto em relação ao outro, mas não o contrário
+diferenca_conjunto([],_,[]):-!.
+diferenca_conjunto(X,[],X):-!.
+diferenca_conjunto([],[],[]):-!.
+diferenca_conjunto([X|L],L1,L2):-existe(L1,X),!,diferenca_conjunto(L,L1,L2).
+diferenca_conjunto([X|L],L1,[X|L2]):-diferenca_conjunto(L,L1,L2).

@@ -201,4 +201,23 @@ test(existe, [fail]) :-
 test(existe, [fail]) :-
         existe([],5).
 
+% diferenca_conjuntos
+test(diferenca_conjuntos) :-
+        diferenca_conjuntos([],[],[]).
+
+test(diferenca_conjuntos) :-
+        diferenca_conjuntos([],[1],[1]).
+
+test(diferenca_conjuntos) :-
+        diferenca_conjuntos([1],[],[1]).
+
+test(diferenca_conjuntos) :-
+        diferenca_conjuntos([],[1],[1]).
+
+test(diferenca_conjuntos) :-
+        diferenca_conjuntos([1],[1],[]).
+
+test(diferenca_conjuntos) :-
+        diferenca_conjuntos([1,2,3],[3,4,5,6],[1,2,4,5,6]).
+
 :- end_tests(lists).
