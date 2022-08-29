@@ -96,7 +96,7 @@ inverter([X|L],L2):-inverter(L,L1),append(L1,[X],L2).
 % admitem elementos repetidos)
 
 unir_conjuntos([],[],_):-!.
-unir_conjuntos([X|L],L1,L2):-tem_repetidos([X|L]),!,unir_conjuntos(L,L1,L2).
-unir_conjuntos([],[Y|L1],L2):-tem_repetidos([Y|L1]),!,unir_conjuntos([],L1,L2).
-unir_conjuntos([],[Y|L1],[Y|L2]):-unir_conjuntos([],L1,L2).
+unir_conjuntos([X|L],L1,L2):-tem_repetidos([X|L2]),!,unir_conjuntos(L,L1,L2).
 unir_conjuntos([X|L],L1,[X|L2]):-unir_conjuntos(L,L1,L2).
+unir_conjuntos([],[Y|L1],L2):-tem_repetidos([Y|L2]),!,unir_conjuntos([],L1,L2).
+unir_conjuntos([],[Y|L1],[Y|L2]):-unir_conjuntos([],L1,L2).

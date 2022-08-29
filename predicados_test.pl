@@ -147,5 +147,23 @@ test(inverter) :-
 test(inverter) :-
         inverter([],[]).
 
-:- end_tests(lists).
+% unir conjuntos
+test(unir_conjuntos) :-
+        unir_conjuntos([1,2],[3,4],[1,2,3,4]).
 
+test(unir_conjuntos) :-
+        unir_conjuntos([1,2],[2,3,4],[1,2,3,4]).
+
+test(unir_conjuntos) :-
+        unir_conjuntos([3,2,1],[2,3,4],[3,2,1,4]).
+
+test(unir_conjuntos) :-
+        unir_conjuntos([1],[],[1]).
+
+test(unir_conjuntos) :-
+        unir_conjuntos([],[1],[1]).
+
+test(unir_conjuntos) :-
+        unir_conjuntos([],[],[]).
+
+:- end_tests(lists).
