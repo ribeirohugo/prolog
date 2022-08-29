@@ -61,7 +61,7 @@ eliminar_ocorrencia([X|L],N,[X|L1]):-eliminar_ocorrencia(L,N,L1).
 
 % Eliminar a 1ª ocorrência de um elemento numa lista
 
-eliminar_uma_ocorrencia([_],_,[_]):-!.
+eliminar_uma_ocorrencia([],_,[]):-!.
 eliminar_uma_ocorrencia(L,N,L1):-eliminar_uma_ocorrencia_aux(L,N,0,L1).
 
 eliminar_uma_ocorrencia_aux([],_,1,[]):-!.

@@ -77,5 +77,42 @@ test(concatenar_listas) :-
 test(concatenar_listas) :-
         concatenar_listas([],[1],[1]).
 
+% linearizar_listas
+test(linearizar) :-
+        linearizar([1,2,[1,2]],[1,2,1,2]).
+
+test(linearizar) :-
+        linearizar([[1],2,[]],[1,2]).
+
+test(linearizar) :-
+        linearizar([],[]).
+
+% eliminar_ocorrencia
+test(eliminar_ocorrencia) :-
+        eliminar_ocorrencia([1,2,2,3,3],2,[1,3,3]).
+
+test(eliminar_ocorrencia) :-
+        eliminar_ocorrencia([],2,[]).
+
+% eliminar_uma_ocorrencia
+test(eliminar_uma_ocorrencia) :-
+        eliminar_uma_ocorrencia([1,2,2,3,3],2,[1,2,3,3]).
+
+test(eliminar_uma_ocorrencia) :-
+        eliminar_uma_ocorrencia([1,2,3],1,[2,3]).
+
+test(eliminar_uma_ocorrencia) :-
+        eliminar_uma_ocorrencia([],2,[]).
+
+% substituir_ocorrencia
+test(substituir_ocorrencia) :-
+        substituir_ocorrencia([2,2,2],2,2,[2,2,2]).
+
+test(substituir_ocorrencia) :-
+        substituir_ocorrencia([2,2,2],2,1,[1,1,1]).
+
+test(substituir_ocorrencia) :-
+        substituir_ocorrencia([],1,2,[]).
+
 :- end_tests(lists).
 
