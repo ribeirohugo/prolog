@@ -101,9 +101,9 @@ unir_conjuntos([],[Y|L1],L2):-tem_repetidos([Y|L2]),!,unir_conjuntos([],L1,L2).
 unir_conjuntos([],[Y|L1],[Y|L2]):-unir_conjuntos([],L1,L2).
 
 % Intersecção de dois conjuntos representados por listas
-interseccao_conjuntos([],_,_):-!.
-interseccao_conjuntos(_,[],_):-!.
-interseccao_conjuntos([],[],_):-!.
+interseccao_conjuntos([],_,[]):-!.
+interseccao_conjuntos(_,[],[]):-!.
+interseccao_conjuntos([],[],[]):-!.
 interseccao_conjuntos([X|L],L1,[X|L2]):-existe(L1,X),!,interseccao_conjuntos(L,L1,L2).
 interseccao_conjuntos([_|L],L1,L2):-interseccao_conjuntos(L,L1,L2).
 

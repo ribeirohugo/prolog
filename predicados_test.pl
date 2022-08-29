@@ -177,6 +177,9 @@ test(interseccao_conjuntos) :-
         interseccao_conjuntos([1,2,3],[1,2],[1,2]).
 
 test(interseccao_conjuntos) :-
+        interseccao_conjuntos([3,1,1,1],[2,1],[1,1,1]).
+
+test(interseccao_conjuntos, [fail]) :-
         interseccao_conjuntos([3,1,1,1],[2,1],[3,1,1,1]).
 
 test(interseccao_conjuntos) :-
@@ -191,6 +194,9 @@ test(existe) :-
 
 test(existe, [fail]) :-
         existe([1,2,3],5).
+
+test(existe, [fail]) :-
+        existe([2,2,2],1).
 
 test(existe, [fail]) :-
         existe([],5).
