@@ -88,9 +88,9 @@ adicionar_elemento(_,_,[],_):-!.
 adicionar_elemento(N,I,[Y|L],[Y|L1]):-I1 is I-1,adicionar_elemento(N,I1,L,L1).
 
 % Inverter lista
-
-inverter([],[]):-!.
-inverter([X|L],L2):-inverter(L,L1),concatenar_listas(L1,[X],L2).
+inverter([],_):-!.
+inverter([X],[X]):-!.
+inverter([X|L],L2):-inverter(L,L1),append(L1,[X],L2).
 
 % União de dois conjuntos representados por listas (os conjuntos não
 % admitem elementos repetidos)

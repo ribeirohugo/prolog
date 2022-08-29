@@ -73,6 +73,9 @@ test(menor_elemento) :-
 
 % concatenar_listas
 test(concatenar_listas) :-
+        concatenar_listas([1,2,3],[3,2,1],[1,2,3,3,2,1]).
+
+test(concatenar_listas) :-
         concatenar_listas([1,2],[1,2],[1,2,1,2]).
 
 test(concatenar_listas) :-
@@ -133,6 +136,16 @@ test(adicionar_elemento) :-
 
 test(adicionar_elemento) :-
         adicionar_elemento(1,3,[],[]).
+
+% inverter
+test(inverter) :-
+        inverter([1,2,3],[3,2,1]).
+
+test(inverter) :-
+        inverter([1],[1]).
+
+test(inverter) :-
+        inverter([],[]).
 
 :- end_tests(lists).
 
