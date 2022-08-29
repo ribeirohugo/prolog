@@ -3,6 +3,16 @@
 
 :- consult("predicados.pl").
 
+% contar
+test(contar) :-
+        contar([1,2], 2).
+
+test(contar) :-
+        contar([1], 1).
+
+test(contar) :-
+        contar([], 0).
+
 % media
 test(media) :-
         media([2,2], 2).

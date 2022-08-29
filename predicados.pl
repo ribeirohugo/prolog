@@ -1,3 +1,8 @@
+% Contar elementos de uma lista
+
+contar([],0):-!.
+contar([_|L],C):-contar(L,C1), C is C1+1.
+
 % Cálculo da média
 
 media([],0):-!.
