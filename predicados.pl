@@ -9,7 +9,7 @@ soma_media([X|L],S,C):-soma_media(L,S1,C1), S is S1+X, C is C1+1.
 % Obter valor mínimo de lista de inteiros
 
 menor([X],X):-!.
-menor([X,Y|L],M):- X > Y -> menor([X|L],M); menor([Y|L],M).
+menor([X,Y|L],M):- X < Y -> menor([X|L],M); menor([Y|L],M).
 
 minimo([X],X):-!.
 minimo([X,Y|L],M):- X > Y, !, minimo([Y|L],M).
@@ -84,3 +84,12 @@ adicionar_elemento(N,I,[Y|L],[Y|L1]):-I1 is I-1,adicionar_elemento(N,I1,L,L1).
 
 inverter([],[]):-!.
 inverter([X|L],L2):-inverter(L,L1),concatenar_listas(L1,[X],L2).
+
+% União de dois conjuntos representados por listas (os conjuntos não
+% admitem elementos repetidos)
+
+unir_conjuntos([],[],_):-!.
+unir_conjuntos([X|L],L1,L2):-tem_repetidos([X|L]),!,unir_conjuntos(L,L1,L2).
+unir_conjuntos([],[Y|L1],L2):-tem_repetidos([Y|L1]),!,unir_conjuntos([],L1,L2).
+unir_conjuntos([],[Y|L1],[Y|L2]):-unir_conjuntos([],L1,L2).
+unir_conjuntos([X|L],L1,[X|L2]):-unir_conjuntos(L,L1,L2).
