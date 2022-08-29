@@ -41,5 +41,24 @@ test(tem_repetidos) :-
 test(tem_repetidos, [fail]) :-
         tem_repetidos([1,2,3,4,5]).
 
+test(tem_repetidos, [fail]) :-
+        tem_repetidos([1]).
+
+test(tem_repetidos, [fail]) :-
+        tem_repetidos([]).
+
+% menor_elemento
+
+test(menor_elemento) :-
+        menor_elemento([2,1,0,1,2],[0,2,1,1,2]).
+
+test(menor_elemento) :-
+        menor_elemento([2,1,0,1,-2],[-2,2,1,0,1]).
+
+test(menor_elemento) :-
+        menor_elemento([],[]).
+
+test(menor_elemento) :-
+        menor_elemento([2],[2]).
 
 :- end_tests(lists).

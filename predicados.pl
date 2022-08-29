@@ -29,12 +29,13 @@ contar_pares_impares([_|L],P,I):-contar_pares_impares(L,P,I1), I is I1+1.
 
 % Verificar se lista tem repetidos
 
-tem_repetidos([]):-!.
+tem_repetidos([X|X]):-!.
 tem_repetidos([X|L]):-member(X,L),!.
-tem_repetidos([_,L]):-tem_repetidos(L).
+tem_repetidos([_|L]):-tem_repetidos(L).
 
 % Colocar o menor elemento da lista à frente da lista
 
+menor_elemento([],[]):-!.
 menor_elemento(L,[Menor|L1]):-menor(L,Menor), remove_menor(Menor,L,L1),!.
 
 remove_menor(M,[M|L],L).
