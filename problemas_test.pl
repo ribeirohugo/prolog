@@ -35,4 +35,17 @@ test(remover_iguais_seguidos) :-
 test(remover_iguais_seguidos) :-
         remover_iguais_seguidos([],[]).
 
+% absoluto
+test(absoluto) :-
+        absoluto([],[],[]).
+
+test(absoluto) :-
+        absoluto([3,3,3],[2,1,1],[1,2,2]).
+
+test(absoluto) :-
+        absoluto([1,1,1],[1,2,3],[0,1,2]).
+
+test(absoluto) :-
+        absoluto([1,1,1],[1,2,3],[0,1,2]).
+
 :- end_tests(lists).
