@@ -14,3 +14,12 @@ remover_iguais_seguidos([X,Y|L],L1):-remover_iguais_seguidos([Y|L],[X|L1]).
 absoluto([],[],[]):-!.
 absoluto([X|L],[Y|L1],[Z|L2]):-Y>X,!,absoluto(L,L1,L2),Z is Y-X.
 absoluto([X|L],[Y|L1],[Z|L2]):-absoluto(L,L1,L2),Z is X-Y.
+
+% Predicado que apresenta as combinações possíveis sempre que encontrar uma lista como elemento
+% dessa lista.
+% ex.: conjuntos_possiveis([1,[1,2],2,[3,4]],L).
+% L = [1,1,2,3];[1,1,2,4];[1,2,2,3];[1,2,2,4].
+
+conjuntos_possiveis([],[]).
+conjuntos_possiveis([X|L],[Y|L1]):-is_list(X),!,member(Y,X),conjuntos_possiveis(L,L1).
+conjuntos_possiveis([X|L],[X|L1]):-conjuntos_possiveis(L,L1).

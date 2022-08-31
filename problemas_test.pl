@@ -48,4 +48,21 @@ test(absoluto) :-
 test(absoluto) :-
         absoluto([1,1,1],[1,2,3],[0,1,2]).
 
+% discretizar
+test(conjuntos_possiveis) :-
+        conjuntos_possiveis([],[]).
+
+test(conjuntos_possiveis) :-
+        conjuntos_possiveis([1,2,3],[1,2,3]).
+
+test(conjuntos_possiveis, [nondet]) :-
+        conjuntos_possiveis([1,[1,2],2],[1,1,2]),
+        conjuntos_possiveis([1,[1,2],2],[1,2,2]).
+
+test(conjuntos_possiveis, [nondet]) :-
+        conjuntos_possiveis([1,[1,2],2,[3,4]],[1,1,2,3]),
+        conjuntos_possiveis([1,[1,2],2,[3,4]],[1,1,2,4]),
+        conjuntos_possiveis([1,[1,2],2,[3,4]],[1,2,2,3]),
+        conjuntos_possiveis([1,[1,2],2,[3,4]],[1,2,2,4]).
+
 :- end_tests(lists).
