@@ -23,3 +23,24 @@ absoluto([X|L],[Y|L1],[Z|L2]):-absoluto(L,L1,L2),Z is X-Y.
 conjuntos_possiveis([],[]).
 conjuntos_possiveis([X|L],[Y|L1]):-is_list(X),!,member(Y,X),conjuntos_possiveis(L,L1).
 conjuntos_possiveis([X|L],[X|L1]):-conjuntos_possiveis(L,L1).
+
+% Escreva um predicado Prolog retira_extremos/2 que a partir de uma lista representando uma
+  %sequência de números retira todas as ocorrências do menor valor e do maior valor da sequência. Por
+  %exemplo:
+  %?- retira_extremos([10,12,15,13,12,9,14,17,9,15,17],LSE).
+  %LSE = [10, 12, 15, 13, 12, 14, 15].
+  %Nota: pode usar o predicado delete/3 que recebe no 1º argumento uma lista instanciada e remove dessa
+  %lista todas as ocorrências do valor instanciado indicado no 2º argumento, gerando a lista pretendida no
+  %3º argumento
+
+retira_extremos([],[]):-!.
+retira_extremos(L,L2):-
+    retira_extremos_aux(L,Menor,Maior),
+    delete(L,Maior,L1),
+    delete(L1,Menor,L2).
+
+retira_extremos_aux([X],X,X).
+retira_extremos_aux([X|L],X,Menor):-retira_extremos_aux(L,Maior,Menor),X>Maior,!.
+retira_extremos_aux([X|L],Maior,X):-retira_extremos_aux(L,Maior,Menor),X<Menor,!.
+retira_extremos_aux([_|L],Maior,Menor):-retira_extremos_aux(L,Maior,Menor).
+

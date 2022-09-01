@@ -48,7 +48,7 @@ test(absoluto) :-
 test(absoluto) :-
         absoluto([1,1,1],[1,2,3],[0,1,2]).
 
-% discretizar
+% conjuntos_possiveis
 test(conjuntos_possiveis) :-
         conjuntos_possiveis([],[]).
 
@@ -64,5 +64,18 @@ test(conjuntos_possiveis, [nondet]) :-
         conjuntos_possiveis([1,[1,2],2,[3,4]],[1,1,2,4]),
         conjuntos_possiveis([1,[1,2],2,[3,4]],[1,2,2,3]),
         conjuntos_possiveis([1,[1,2],2,[3,4]],[1,2,2,4]).
+
+% retira_extremos
+test(retira_extremos) :-
+        retira_extremos([],[]).
+
+test(retira_extremos) :-
+        retira_extremos([1,2,3],[2]).
+
+test(retira_extremos) :-
+        retira_extremos([3,3,3,1,1,1],[]).
+
+test(retira_extremos) :-
+        retira_extremos([1,2,3,1,1,1,1,2,3,3,3],[2,2]).
 
 :- end_tests(lists).
