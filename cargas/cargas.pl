@@ -4,7 +4,6 @@
 % no 3º argumento.
 % carga(Cidade,Carga)
 soma_pesos([],[],0):-!.
-soma_pesos([_],[X],X):-!.
 soma_pesos([X|L],[Peso|L1],Peso):-
     carga(X,Carga),
     soma_pesos(L,L1,P),
@@ -16,3 +15,19 @@ acrescenta_tara(Tara,[],[Tara]):-!.
 acrescenta_tara(Tara,[P|L],[Peso|L1]):-
     acrescenta_tara(Tara,L,L1),
     Peso is P+Tara.
+
+% calcula custo
+calcula_custo([],0):-!.
+calcula_custo(LCidades,Custo):-
+    soma_pesos(LCidades,LPesos,_),
+    tara(Tara),
+    acrescenta_tara(Tara,LPesos,LPesosTara),
+    cidade_fabrica(CF),
+    append([CF|LCidades],[CF],LCidadesCompleta),
+    custo(LCidadesCompleta,LPesosTara,Custo),!.
+
+custo([_],[],0):-!.
+custo([X,Y|LCidades],[P|LPesos],Custo):-
+    (dist(X,Y,Dist);dist(Y,X,Dist)),
+    custo([Y|LCidades],LPesos,C),
+    Custo is C+(Dist*P).
