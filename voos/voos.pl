@@ -14,3 +14,6 @@ encontra_voos2(Origem,Destino,L,T,[ID|LV]):-
     not(member(X,L)),
     encontra_voos2(X,Destino,[X|L],TChegada,LV).
 
+% Predicado que encontra todas as alternativas de voo entre a origem O e o destino D a partir do instante T gerando uma
+% lista LL, em que as listas internas são possibilidades de voos usadas.
+todas_alternativas_voo(Origem,Destino,T,LL):-findall(L,encontra_voos(Origem,Destino,T,L),LL).
