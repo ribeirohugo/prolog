@@ -16,7 +16,8 @@ acrescenta_tara(Tara,[P|L],[Peso|L1]):-
     acrescenta_tara(Tara,L,L1),
     Peso is P+Tara.
 
-% calcula custo
+% Predicado que calcula o custo como a soma dos produtos das distâncias percorridas pelo peso em movimento (do camião
+% mais cargas transportadas).
 calcula_custo([],0):-!.
 calcula_custo(LCidades,Custo):-
     soma_pesos(LCidades,LPesos,_),
