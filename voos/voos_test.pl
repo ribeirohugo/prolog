@@ -19,4 +19,12 @@ test(todas_alternativas_voo):-
 test(todas_alternativas_voo):-
     todas_alternativas_voo(porto,milao,2500,[]).
 
+% chega_mais_cedo
+test(chega_mais_cedo):-
+    chega_mais_cedo(porto,milao,100,[fr5483, fr1225, fr8518]).
+
+% chega_mais_cedo
+test(chega_mais_cedo, [fail]):-
+    chega_mais_cedo(porto,milao,2500,[]).
+
 :- end_tests(lists).

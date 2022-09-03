@@ -17,3 +17,23 @@ encontra_voos2(Origem,Destino,L,T,[ID|LV]):-
 % Predicado que encontra todas as alternativas de voo entre a origem O e o destino D a partir do instante T gerando uma
 % lista LL, em que as listas internas são possibilidades de voos usadas.
 todas_alternativas_voo(Origem,Destino,T,LL):-findall(L,encontra_voos(Origem,Destino,T,L),LL).
+
+
+% Predicado que encontra o voo que chega mais cedo ao destino pretendido, dentro de todos os possíveis.
+chega_mais_cedo(Origem,Destino,T,L):-todas_alternativas_voo(Origem,Destino,T,[X|LL]),mais_cedo(LL,X,L).
+
+mais_cedo([],X,X).
+mais_cedo([X|LL],Y,Z):-
+    ultimo(X,X1),
+    ultimo(Y,Y1),
+    voo(X1,_,_,_,T1),
+    voo(Y1,_,_,_,T2),
+    T2<T1,!,
+    mais_cedo(LL,Y,Z).
+
+mais_cedo([_|LL],Y,Z):-
+    mais_cedo(LL,Y,Z).
+
+ultimo([X],X).
+ultimo([_,L],X):-ultimo(L,X).
+
