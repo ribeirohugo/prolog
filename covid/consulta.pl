@@ -37,5 +37,10 @@ risco_covid(paredes,muito_elevado).
 risco_covid(vila_nova_de_gaia,muito_elevado).
 risco_covid(gondomar,muito_elevado).
 risco_covid(espinho,elevado).
+risco_covid(santa_maria_da_feira,elevado).
+risco_covid(sao_joao_da_madeira,moderado).
+risco_covid(oliveira_de_azemeis,muito_elevado).
+risco_covid(arouca,elevado).
+risco_covid(vale_de_cambra,elevado).
 
 niveis_risco([moderado,elevado,muito_elevado,extremo]).
