@@ -7,6 +7,7 @@ Este repositório tem como objectivo reunir predicados e excertos de código em 
 Os predicados de PROLOG estão disponíveis nos seguindes ficheiros:
 * ``predicados.pl`` - predicados comuns/genéricos de PROLOG.
 * ``problemas.pl`` - resolução de alguns problemas através de predicados.
+* ``apriori/apriori.pl`` - resolução de problema acerca do algoritmo Apriori através de predicados.
 * ``cargas/cargas.pl`` - resolução de problema de cargas através de predicados.
 * ``covid/covid.pl`` - resolução de problema de covid através de predicados.
 * ``distancias/distancias.pl`` - resolução de problema de viagens através de predicados.
