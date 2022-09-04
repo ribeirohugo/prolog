@@ -27,3 +27,11 @@ nivel_suporte1([P|LTP],[p(P,QtI)|LTPNS]):-
     findall(I,(compra(I,LPI),member(P,LPI)),LI),
     length(LI,QtI),
     nivel_suporte1(LTP,LTPNS).
+
+% Predicado que retorna uma lista com os nomes dos produtos que têm pelo menos o nível de suporte N1.
+corta_inferiores_N([],_,[]).
+corta_inferiores_N([p(P,Qt)|LTPNS],N,[P|LP]):-
+    N=<Qt,!,
+    corta_inferiores_N(LTPNS,N,LP).
+corta_inferiores_N([_|LTPNS],N,LP):-
+    corta_inferiores_N(LTPNS,N,LP).
