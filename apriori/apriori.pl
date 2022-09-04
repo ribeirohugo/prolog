@@ -35,3 +35,9 @@ corta_inferiores_N([p(P,Qt)|LTPNS],N,[P|LP]):-
     corta_inferiores_N(LTPNS,N,LP).
 corta_inferiores_N([_|LTPNS],N,LP):-
     corta_inferiores_N(LTPNS,N,LP).
+
+% Predicado escolheN(N,LP,LPC) que a partir de uma lista de produtos LP, retorna uma lista LPC
+% com uma combinação de N produtos dessa lista.
+escolhe_n(0,_,[]):-!.
+escolhe_n(N,[X|LP],[X|LPC]):-N1 is N-1, escolhe_n(N1,LP,LPC).
+escolhe_n(N,[_|L],LPC):-escolhe_n(N,L,LPC).

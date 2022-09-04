@@ -15,5 +15,11 @@ test(nivel_suporte) :-
 test(corta_inferiores_N) :-
         corta_inferiores_N([p(bolo, 1), p(leite, 2), p(cha, 3), p(ovos, 3), p(refrigerante, 3), p(sumo, 1)],2,[leite, cha, ovos, refrigerante]).
 
-:- end_tests(lists).
+% escolhe_n
+test(escolhe_n, [nondet]):-
+    escolhe_n(3,[leite, cha, ovos, refrigerante],[leite, cha, ovos]),
+    escolhe_n(3,[leite, cha, ovos, refrigerante],[leite, cha, refrigerante]),
+    escolhe_n(3,[leite, cha, ovos, refrigerante],[leite, ovos, refrigerante]),
+    escolhe_n(3,[leite, cha, ovos, refrigerante],[cha, ovos, refrigerante]).
 
+:- end_tests(lists).
